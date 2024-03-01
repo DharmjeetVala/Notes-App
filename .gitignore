@@ -19,8 +19,7 @@ local.properties
 *.jar
 *.hprof
 *.log
-*.xml
-*.java
+
 *.class
 *.swp
 *.swo
