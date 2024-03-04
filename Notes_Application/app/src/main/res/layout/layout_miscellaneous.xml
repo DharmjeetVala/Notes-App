@@ -7,13 +7,13 @@
     android:layout_width="match_parent"
     android:background="@drawable/background_miscellaneous"
     android:layout_height="wrap_content"
-    app:behavior_peekHeight="@dimen/_40sdp"
+    app:behavior_peekHeight="52dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <TextView
         android:id="@+id/textMiscellaneous"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="52dp"
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/customize_note"

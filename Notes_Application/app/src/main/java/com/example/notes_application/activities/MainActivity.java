@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -15,6 +17,7 @@ import com.example.notes_application.adapters.NotesAdapter;
 import com.example.notes_application.database.NotesDatabase;
 import com.example.notes_application.entities.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         notesRecyclerView.setLayoutManager(
                 new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         );
-
+        noteList = new ArrayList<>();
+        notesAdapter = new NotesAdapter(noteList);
+        notesRecyclerView.setAdapter(notesAdapter);
         getNotes();
     }
 
@@ -69,5 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
         new GetNotesTask().execute();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK){
+        }
     }
 }
